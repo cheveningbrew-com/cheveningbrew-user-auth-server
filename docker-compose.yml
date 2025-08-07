@@ -1,0 +1,17 @@
+version: "3.8"
+
+# For production use
+services:
+  user_auth_server:
+    build: .
+    image: cheveningbrew/user_auth_server:0.0
+    container_name: user_auth_server
+    ports:
+      - "8001:8001"
+    environment:
+      - WEB_CLIENT_ID=${WEB_CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - REDIRECT_URI=${REDIRECT_URI}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+    restart: always

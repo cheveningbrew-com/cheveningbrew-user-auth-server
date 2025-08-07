@@ -20,12 +20,16 @@ JWT_EXPIRATION_DELTA = 24  # Token expiration in hours
 
 load_dotenv()
 
+# Get allowed origins from environment variable, default to localhost for development
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3001")
+allowed_origins_list = [origin.strip() for origin in ALLOWED_ORIGINS.split(",")]
+
 app = FastAPI()
 
-# let localhost:3001 access the backend
+# Configure CORS with multiple allowed origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3001"],
+    allow_origins=allowed_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

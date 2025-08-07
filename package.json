@@ -1,0 +1,17 @@
+{
+  "name": "user-auth-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "user-auth-restart": "docker-compose restart",
+    "user-auth-build": "docker-compose build",
+    "user-auth-start": "docker-compose up -d",
+    "user-auth-stop": "docker-compose down",
+    "user-auth-logs": "docker-compose logs -f",
+    "user-auth-clean": "docker-compose down --rmi local"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
